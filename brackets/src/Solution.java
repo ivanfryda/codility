@@ -19,7 +19,7 @@ class Solution {
             if (S.charAt(i) == '(') {
                 queue.push(S.charAt(i));
             } else {
-                if (queue.isEmpty() || !(queue.pop().equals(')'))) {
+                if (queue.isEmpty() || !(queue.pop().equals('('))) {
                     return 0;
                 }
             }
