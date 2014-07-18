@@ -8,6 +8,9 @@ import java.util.LinkedList;
 
 class Solution {
     public int solution(String S) {
+        if (S.length() == 0) {
+            return 1;
+        }
         if (S.length() % 2 != 0) {
             return 0;
         }
@@ -21,7 +24,7 @@ class Solution {
                 }
             }
         }
-        return 1;
+        return queue.isEmpty() ? 1 : 0;
     }
     private boolean isOpening(char aChar) {
         return aChar == '(' || aChar == '[' || aChar == '{';
