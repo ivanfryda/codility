@@ -16,14 +16,23 @@ class Solution {
         }
         LinkedList<Character> queue = new LinkedList<Character>();
         for (int i = 0; i < S.length(); i++) {
-            if (S.charAt(i) == '(') {
+            if (isOpening(S.charAt(i))) {
                 queue.push(S.charAt(i));
             } else {
-                if (queue.isEmpty() || !(queue.pop().equals(')'))) {
+                if (queue.isEmpty() || !match(queue.pop(), S.charAt(i))) {
                     return 0;
                 }
             }
         }
         return queue.isEmpty() ? 1 : 0;
+    }
+    private boolean isOpening(char aChar) {
+        return aChar == '(' || aChar == '[' || aChar == '{';
+    }
+    private boolean match(char opening, char closing) {
+        if (opening == '(') return closing == ')';
+        if (opening == '[') return closing == ']';
+        if (opening == '{') return closing == '}';
+        return false;
     }
 }
