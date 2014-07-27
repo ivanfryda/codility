@@ -15,6 +15,6 @@ class Solution {
                 passing += travellingEast;
             }
         }
-        return passing;
+        return passing > 1e9 ? -1 : passing;
     }
 }
