@@ -6,15 +6,18 @@
 
 class Solution {
     public int solution(int[] A) {
-        int travellingEast = 0;
-        int passing = 0;
+        long travellingEast = 0;
+        long passing = 0;
         for (int a : A) {
             if (a == 0) {
                 travellingEast++;
             } else if (a == 1) {
                 passing += travellingEast;
+                if (passing > 1e9) {
+                	return -1;
+                }
             }
         }
-        return passing > 1e9 ? -1 : passing;
+        return (int) passing;
     }
 }
